@@ -28,6 +28,10 @@ app.use(express.static(publicDir))
 });//all can create pages
 //render creates the page
 
+
+
+
+//login-------------------------------------------------------------------------
 app.post('/signup', function(req, res) {
   var results;
   var username = req.body.username;
@@ -52,7 +56,38 @@ app.post('/signup', function(req, res) {
   })
 
 });
+// register -----------------------------------------------------------
 
+app.post('/register', function(req, res) {
+  var results;
+  var username2 = req.body.username2;
+  var firstName = req.body.firstName;
+  var lastName= req.body.lastName;
+  var emailAddress = req.body.emailAddress;
+  var password = req.body.password;
+  sql.connect(config).then(pool => {
+    return pool.request()
+      .input('username', sql.VarChar(30), username2)
+      .input('password', sql.VarChar(30), password)
+      .input('firstName', sql.VarChar(30), firstName)
+      .input('lastName', sql.VarChar(30), lastName)
+    .input('emailAddress', sql.VarChar(30), emailAddress)
+    .output('returnValue', sql.VarChar(50))
+    .execute('usp_Users_CreateNewUser')
+  }).then(result => {
+    console.log(result)
+    results = result;
+    console.log(results)
+    if (result.output.returnValue == 1){
+      res.redirect('/product');
+    } else {
+      console.log('error')
+    }
+  }).catch(err => {
+    console.log(err)
+  })
+
+});
 
 app.all('/logmain', (req, res)=>{
     res.render('logmain.hbs');
