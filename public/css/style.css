@@ -1,0 +1,548 @@
+body {
+  max-width: 65%;
+  margin: auto;
+  border:solid rgb(54, 199, 24) 2px;
+
+}
+  
+  
+  #main-container {
+      width: 100%;
+      border:solid rgb(73, 33, 119) 2px;
+      background: rgb(165, 20, 20);
+   
+      background-image: url(../Images/Background.jpg);
+  }
+
+  header {
+      width:100%;
+      height:250px;
+      background:rgba(255, 146, 82, 0.5);
+      border:solid black 2px; 
+  }
+
+  #MainBody {
+      width: 100%;
+      height: auto;
+      border:solid rgb(191, 29, 206) 2px;
+    
+  }
+
+
+  #LeftBox{
+      float: left;
+      width: 40%;
+      height:800px;
+      border:solid rgb(191, 29, 206) 2px;
+      background: rgba(255, 255, 255, 0.692);
+      margin-top: 80px;
+      margin-bottom: 80px;
+      margin-left: 55px;
+      
+
+  }
+
+
+  #RightBox{
+      float:right;
+      margin-left: 39px;
+      width: 40%;
+      height:800px;
+      border:solid rgb(191, 29, 206) 2px;
+      background: rgba(255, 255, 255, 0.692);
+      margin-top: 80px;
+      margin-right: 55px;
+     
+      
+     
+  }
+
+  
+  #RightBox2{
+    float:right;
+    margin-left: 39px;
+    width: 40%;
+    height:800px;
+    border:solid rgb(191, 29, 206) 2px;
+    background: rgba(255, 255, 255, 0.692);
+    margin-top: 80px;
+    margin-right: 55px;
+   
+    
+   
+}
+    #Favbox{
+
+    width:95%;
+    height: 1000px;
+    background: rgba(255, 255, 255, 0.692);
+    border:solid rgb(191, 29, 206) 2px;
+    margin-left: 30px;
+
+
+    }
+
+    #prefbox{
+      border:solid rgb(191, 29, 206) 2px;
+    margin-left: 25px;
+    width: 50%;
+
+    }
+
+
+  #logo{
+    float: left;
+    width: 20%;
+    height:200px;
+    border:solid rgb(191, 29, 206) 2px;
+    margin-top: 25px;
+    margin-left: 10px;
+    background-image: url(../Images/logo.png);
+    background-size: 190px 190px;
+    background-repeat: no-repeat;
+    position: relative;
+  
+
+}
+#login2{
+  float: right;
+  width: 30%;
+  height:200px;
+  border:solid rgb(191, 29, 206) 2px;
+  margin-top: 25px;
+  margin-right: 25px;
+  position: relative;
+
+
+
+}
+#search {
+width: 35%;
+height:20px;
+border:solid rgb(50, 206, 29) 2px;
+float: left;
+margin-top: 100px;
+margin-left:50px;
+position: relative;
+}
+
+
+footer{
+
+
+  text-align: center;
+  clear: both;
+  width: 100%;
+  float: none;
+  
+  background:rgba(255, 146, 82, 0.5);
+  border:solid rgb(186, 12, 230) 2px;
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*registration -----------------------------------------------------------------------------------------------------*/
+
+
+#main-title {
+  /* border: 2px red solid; */
+  text-align: center;
+  font-size: 25px;
+  padding: 30px 30px 10px 30px;
+  font-weight: 700;
+  color: rgb(20, 20, 20);
+} 
+
+
+#subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: rgb(70, 70, 70);
+}
+
+form {
+  /* border: 2px red solid; */
+  padding: 20px 40px 20px 40px;
+  
+}
+
+
+
+.placeholders input {
+  /* border: 2px red solid; */
+  width: 100%;
+  height: 35px;
+}
+
+
+
+
+
+#terms-conditions {
+  display: inline;
+  font-size: 13px;
+  color: black;
+  /* border: 2px red solid; */
+}
+
+#a-submit {
+      display: block;
+      margin: auto;
+      text-align: center;
+      padding: 10px 30px 10px 30px;
+      border: 1px solid rgb(27, 140, 233);
+      background-color: white;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 14px;
+      color: rgb(27, 140, 233);
+      font-weight: 700;
+      
+}
+
+
+#a-submit:hover {
+  border: 1px solid rgb(27, 140, 233);
+  background-color:rgb(27, 140, 233);
+  color: white;
+  width: 50%;
+  /* box-shadow: 2px 3px 10px rgb(211, 211, 211); */
+}
+
+#a-submit:active {
+  width: 40%;
+
+
+  /* box-shadow: 2px 3px 10px rgb(211, 211, 211); */
+}
+
+/* search bar-------------------------------------------------------------------------------------------*/
+
+
+
+
+.searchProperties form {
+background: rgba(94, 91, 91, 0.541);
+background: linear-gradient(#74707065, rgba(155, 153, 153, 0.384));
+border-radius: 5px;
+
+display: inline-block;
+font-size: 0px;
+padding: 10px;
+z-index: 1;
+width: 100%;
+}
+
+.searchProperties input {
+
+background: linear-gradient(rgb(231, 228, 228), rgb(214, 205, 205));	
+border: 1px solid #444;
+border-radius: 5px 0 0 5px;
+display: block;
+float: left;
+font-size: 13px;
+font-weight: 400;
+height: 40px;
+margin: 0;
+padding: 0 10px;
+width: 80%;
+}
+
+.ie .searchProperties input {
+line-height: 40px;
+}
+
+
+
+.searchProperties input:-moz-placeholder {
+ color: rgb(0, 121, 235);
+}
+
+
+
+
+
+.searchProperties button {
+background: rgb(27, 140, 233);
+box-sizing: border-box;
+border: 1px solid #444;
+border-radius: 0 5px 5px 0;
+color: rgb(235, 227, 227);
+display: block;
+float: left;
+font-size: 12px;
+font-weight: 400;
+height: 40px;
+line-height: 40px;
+margin: 0;
+padding: 0;
+position: relative;
+width: 20%;
+}	
+
+.searchProperties button:hover{
+
+background: rgb(24, 36, 201);
+
+}
+
+
+/* login------------------------------------------------------------------------------------------------------------------------ */
+
+
+
+
+
+
+.left {
+text-align: left;
+}
+
+.center {
+text-align: center;
+}
+
+.right {
+text-align: right;
+}
+
+.justify {
+text-align: justify;
+}
+
+.uppercase {
+text-transform: uppercase;
+}
+
+
+.padding1rem {
+padding: 1rem;
+}
+
+.paddingRight2rem {
+padding: 0 2rem 0 0;
+}
+
+
+.container {
+max-width: 100%;
+
+overflow: hidden;
+
+}
+
+.floatLeft {
+float: right;
+}
+
+.floatRight {
+float: right;
+}
+
+.posAbs {
+position: absolute;
+}
+
+.third {
+width: 33.3333%;
+}
+
+.half {
+width: 50%;
+}
+
+.twoThird {
+width: 66.6666%;
+}
+
+.quarter {
+width: 25%;
+}
+
+label {
+cursor: pointer;
+
+
+height: 4rem;
+width: 4rem;
+position: relative;
+z-index: 2;
+}
+label span {
+border-radius: 15%;
+height: 3px;
+width: 32px;
+background-color: rgb(27, 140, 233);;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translateY(-50%) translateX(-50%);
+transition: all 0.3s ease-out;
+z-index: 2;
+}
+label span:before {
+border-radius: 15%;
+position: absolute;
+content: "";
+height: 100%;
+width: 100%;
+background-color: rgb(27, 140, 233);;
+top: 400%;
+transition: all 0.3s ease-out;
+z-index: 2;
+}
+label span:after {
+border-radius: 15%;
+position: absolute;
+content: "";
+height: 100%;
+width: 100%;
+background-color: rgb(27, 140, 233);;
+top: -400%;
+transition: all 0.3s ease-out;
+z-index: 2;
+
+
+}
+
+label:hover span {
+height: 0;
+transition: all 0.3s ease-out;
+}
+label:hover span:before {
+height: 3px;
+transform: rotate(-45deg);
+transition: all 0.3s ease-out;
+}
+label:hover span:after {
+height: 3px;
+transform: rotate(45deg);
+transition: all 0.3s ease-out;
+}
+
+
+
+nav {
+
+max-width: 300px;
+
+transform: translateX(-100%) scale(1, 0.1);
+transform-origin: top left;
+transition: all 0.3s ease-out;
+}
+nav ul {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+nav ul li {
+border-top: 1px solid #efefef;
+
+transform: translateX(-100%);
+transition: all 0.6s ease-out;
+}
+nav ul li a {
+transition: all 0.3s ease-out;
+line-height: 1rem;
+text-decoration: none;
+color: #8a8d92;
+display: block;
+padding: 1rem;
+}
+nav ul li:first-child {
+border-top: none;
+}
+nav ul li:hover a {
+
+background-color: #6d747e;
+transition: all 0.3s ease-out;
+}
+
+
+.navBtn:checked ~ nav {
+transform: translateX(0);
+transition: all 0.3s ease-out;
+}
+
+.navBtn:checked ~ nav ul li {
+opacity: 1;
+transform: translateX(0);
+transition: all 0.6s ease-out;
+}
+
+.navBtn {
+display: none;
+}
+
+/* Food_lable------------------------------------------------------------------------------------------------------------------------ */
+
+#nutritionfacts { 
+  background-color:white; 
+  border:1px solid black; 
+  padding:3px; 
+  width:90%; 
+  height: 700px;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+#nutritionfacts td { 
+  color:black; 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+  font-size:15pt; 
+  padding:0; 
+}
+#nutritionfacts td.header { 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+  font-size:35px; 
+  white-space:nowrap; 
+}        
+#nutritionfacts div.label { 
+  float:left; 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+}
+#nutritionfacts div.serving { 
+  font-family:Arial,Helvetica,sans-serif; 
+  font-size:15pt; 
+  text-align:center; 
+}
+#nutritionfacts div.weight { 
+  display:inline; 
+  font-family:Arial,Helvetica,sans-serif; 
+  padding-left:1px; 
+}
+#nutritionfacts div.dv { 
+  display:inline; 
+  float:right; 
+  font-family:'Arial Black','Helvetica Bold',sans-serif; 
+}
+#nutritionfacts table.vitamins td {  
+  font-family:Arial,Helvetica,sans-serif; 
+  white-space:nowrap; 
+  width:33%; 
+ 
+  
+}
+#nutritionfacts div.line { 
+  border-top:1px solid black; 
+}
+#nutritionfacts div.labellight { 
+  float:left; 
+  font-family:Arial,Helvetica,sans-serif; 
+}
+#nutritionfacts .highlighted {
+  border:1px dotted grey;
+  padding:2px;
+}

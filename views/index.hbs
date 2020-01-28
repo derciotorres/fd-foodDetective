@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   	<div id="main-container">
+
+	    {{>header}} 
+				<div id="MainBody" >
+
+          <div id="LeftBox">
+  
+<h1>left</h1>
+             </div>
+          <div id="RightBox">
+            
+              <h1 id="main-title">Sign Up</h1>
+              <p id="subtitle">It only takes a minute!</p>
+              <form action="">
+    
+  
+                  <div id="username" class="placeholders">
+                      <label id="pl_username" for="text" class="">Username (up to 8 characters)</label>
+                      <input required id="pl_username" type="text" name="username" maxlength="8" placeholder="Enter your username...">
+                  </div>
+
+                  <div id="Fname" class="placeholders "style= "margin-top: 20px;">
+                    <label id="pl_Fname" for="text" class > First Name</label>
+                    <input required id="pl_Fname" type="Fname" name="Fname" placeholder="Enter your Name...">
+                </div>
+
+                <div id="Lname" class="placeholders "style= "margin-top: 20px;">
+                  <label id="pl_Lname" for="text" class > Last Name</label>
+                  <input required id="pl_Lname" type="Lname" name="Lname" placeholder="Enter your Last Name...">
+              </div>
+  
+                  <div id="email" class="placeholders "style= "margin-top: 20px;">
+                      <label id="pl_email" for="text" class > Email</label>
+                      <input required id="pl_email" type="email" name="email" placeholder="Enter your email...">
+                  </div>
+  
+                  <div id="password" class="placeholders"style= "margin-top: 20px;">
+                      <label id="pl_password" for="text" class="">Password</label>
+                      <input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" placeholder="Password" required>
+                  </div>
+                                <div id="password" class="placeholders"style= "margin-top: 20px;">
+                      <label id="pl_password" for="text" class="">Password</label>
+                      <input id="password_two" name="password_two" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" placeholder="Verify Password" required>
+                  </div>
+                                
+                  
+                  <br>
+              
+                  <button onclick="" id="a-submit" href="#">Submit</button>
+  
+                </form> 
+  
+         
+
+          
+       </div><!-- rightbox -->	
+    <h1>Test</h1>
+	</div><!-- mainBody -->
+      
+				
+
+				
+
+{{>footer}} 
+ 
+	</div><!-- main container -->
+</body>
+</html>
