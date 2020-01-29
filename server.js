@@ -1,10 +1,28 @@
 var express = require("express")
 var app = express();
-var hbs = require ('hbs');
-hbs.registerPartials(__dirname + '/views/partials');
 var bodyParser = require('body-parser');
-var sql = require('mssql');
 
+
+
+var sql = require('mssql');
+  //api
+
+  
+
+
+
+
+
+app.use(express.static(__dirname + '/public/css'));//looking for the public folder
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+var publicDir = require('path').join(__dirname,'/public');
+app.use(express.static(publicDir))
+
+//database
 const config = {
   user: 'detectives',
   password: 'neit2020',
@@ -13,18 +31,8 @@ const config = {
   port: 4500
 };
 
-app.set('view engine', 'hbs');// sets up the view
-app.use(express.static(__dirname + '/public/css'));//looking for the public folder
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-
-var publicDir = require('path').join(__dirname,'/public');
-app.use(express.static(publicDir))
-
-
-
   app.get('/',(req, res)=>{
-    res.render('index.hbs');// this is the page
+    res.render('index.html');// this is the page
 });//all can create pages
 //render creates the page
 
@@ -90,18 +98,18 @@ app.post('/register', function(req, res) {
 });
 
 app.all('/logmain', (req, res)=>{
-    res.render('logmain.hbs');
+    res.render('logmain.html');
     //all lets use port or get
     });
 
 
  app.all('/Preferences', (req, res)=>{
-    res.render('Preferences.hbs');
+    res.render('Preferences.html');
     //all lets use port or get
       });
   
       app.all('/product', (req, res)=>{
-        res.render('product.hbs');
+        res.render('product.html');
         //all lets use port or get
           });
 
