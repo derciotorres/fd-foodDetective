@@ -1,17 +1,14 @@
 var express = require("express")
 var app = express();
 var bodyParser = require('body-parser');
-
-
-
 var sql = require('mssql');
-  //api
-
-  
-
-
-
-
+const http = require('http');
+var unirest = require('unirest');
+var fs = require('fs');
+var path = require('path');
+// ***
+// api
+// ***
 
 app.use(express.static(__dirname + '/public/css'));//looking for the public folder
 app.engine('html', require('ejs').renderFile);
@@ -22,7 +19,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 var publicDir = require('path').join(__dirname,'/public');
 app.use(express.static(publicDir))
 
-//database
+// ***
+// database
+// ***
+
 const config = {
   user: 'detectives',
   password: 'neit2020',
@@ -31,15 +31,97 @@ const config = {
   port: 4500
 };
 
-  app.get('/',(req, res)=>{
-    res.render('index.html');// this is the page
-});//all can create pages
-//render creates the page
+app.get ('/search', async (req, res) => {
 
+  var urls = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/products/search", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/products/"];
+  var query = req.query.searchItem
+  var id = 0;
+  console.log(__dirname)
 
+  console.log(query, 'query')
+  console.log(typeof(query)); // 'snickers' string
 
+  if (typeof query !== 'undefined' && query) {
+    console.log('res.query is defined');
 
-//login-------------------------------------------------------------------------
+    var req = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/products/search");
+
+    req.query({
+      "offset": "0",
+      "number": "10",
+      "maxCalories": "5000",
+      "minProtein": "0",
+      "maxProtein": "100",
+      "minFat": "0",
+      "maxFat": "100",
+      "minCarbs": "0",
+      "maxCarbs": "100",
+      "minCalories": "0",
+      "query": query  /* grab query and replace the search value here */
+    });
+
+    req.headers({
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": "7X0MNUFnWRmshxYgMbgWqlOFnZwcp1lyo5tjsnGS7k2WclVBNw"
+    });
+
+    req.end(function (res) {
+
+      if (res.error) throw new Error(res.error);
+
+      //console.log(res.body);
+      id = res.body.products[0].id; // ?
+      console.log(id);
+    });
+
+    await req.end ((req, res) =>
+    {
+      console.log(id);
+      var uri = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/products/";
+      var uri = uri + id;
+
+      console.log(uri)
+
+      // res.render('index.html');
+
+      req = unirest("GET", uri);
+
+      req.headers({
+        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": "7X0MNUFnWRmshxYgMbgWqlOFnZwcp1lyo5tjsnGS7k2WclVBNw"
+      });
+
+      req.end(function (res) {
+        if (res.error) throw new Error(res.error);
+
+        console.log(res.body.badges, ': badges');
+        console.log(res.body.important_badges, ': important_badges');
+      })
+
+      fs.readFile(__dirname + '/views/index.html', (err, data) => {
+        if (err) throw err;
+        var x = document.getElementById("LeftBox");
+        x.style.color='green';
+      })
+
+      res.render(path.join(__dirname + '/views/index.html'));
+    });
+  }
+})
+
+app.get('/',(req, res)=>{
+  res.render('index.html');// this is the page
+});
+
+// ***
+// all can create pages
+// render creates the page
+// ***
+
+// ***
+// login -------------------------------------------------------------------------
+// ***
+
 app.post('/signup', function(req, res) {
   var results;
   var username = req.body.username;
@@ -64,7 +146,10 @@ app.post('/signup', function(req, res) {
   })
 
 });
+
+// ***
 // register -----------------------------------------------------------
+// ***
 
 app.post('/register', function(req, res) {
   var results;
@@ -98,27 +183,33 @@ app.post('/register', function(req, res) {
 });
 
 app.all('/logmain', (req, res)=>{
-    res.render('logmain.html');
-    //all lets use port or get
-    });
+  res.render('logmain.html');
 
-
- app.all('/Preferences', (req, res)=>{
-    res.render('Preferences.html');
+    // ***
     //all lets use port or get
-      });
+    // ***
+
+});
+
+app.all('/Preferences', (req, res)=>{
+  res.render('Preferences.html');
+
+  // ***
+  // all lets use port or get
+  // ***
+
+});
   
-      app.all('/product', (req, res)=>{
-        res.render('product.html');
-        //all lets use port or get
-          });
+app.all('/product', (req, res)=>{
+  res.render('product.html');
 
+// ***
+// all lets use port or get
+// ***
 
-
- 
-
+});
 
 app.listen(4000, ()=>{
-    console.log('server is up at localhost:4000');
-    
-    })
+  console.log('server is up at localhost:4000');
+
+});
