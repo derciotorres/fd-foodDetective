@@ -6,6 +6,9 @@ const http = require('http');
 var unirest = require('unirest');
 var fs = require('fs');
 var path = require('path');
+var response = [];
+
+
 // ***
 // api
 // ***
@@ -36,10 +39,10 @@ app.get ('/search', async (req, res) => {
   var urls = ["https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/products/search", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/products/"];
   var query = req.query.searchItem
   var id = 0;
-  console.log(__dirname)
+
 
   console.log(query, 'query')
-  console.log(typeof(query)); // 'snickers' string
+  console.log(typeof (query)); // 'snickers' string
 
   if (typeof query !== 'undefined' && query) {
     console.log('res.query is defined');
@@ -71,12 +74,11 @@ app.get ('/search', async (req, res) => {
 
       //console.log(res.body);
       id = res.body.products[0].id; // ?
-      console.log(id);
+      console.log(res.body.products[0].id);
     });
 
-    await req.end ((req, res) =>
-    {
-      console.log(id);
+    await req.end((req, res) => {
+      //console.log(id);
       var uri = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/products/";
       var uri = uri + id;
 
@@ -93,24 +95,23 @@ app.get ('/search', async (req, res) => {
 
       req.end(function (res) {
         if (res.error) throw new Error(res.error);
-
         console.log(res.body.badges, ': badges');
+        response = res.body.badges;
         console.log(res.body.important_badges, ': important_badges');
-      })
 
-      fs.readFile(__dirname + '/views/index.html', (err, data) => {
-        if (err) throw err;
-        var x = document.getElementById("LeftBox");
-        x.style.color='green';
-      })
+        console.log(res, "heres the res")
 
-      res.render(path.join(__dirname + '/views/index.html'));
-    });
+
+
+      })
+    })
   }
-})
+  res.render('../views/index.html');
+});
+
 
 app.get('/',(req, res)=>{
-  res.render('index.html');// this is the page
+  res.render('../views/index.html');// this is the page
 });
 
 // ***
